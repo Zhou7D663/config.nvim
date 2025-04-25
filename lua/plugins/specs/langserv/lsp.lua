@@ -26,16 +26,19 @@ return {
           package_installed = "✓",
           package_pending = "➜",
           package_uninstalled = "✗"
-        }
-      }
+        },
+        border = "single",
+      },
+      log_level = vim.log.levels.DEBUG,
     }
   },
   {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
     opts = {
-      ensure_installed = { "lua_ls", "pyright", "clangd", "cmake", "marksman", "yamlls" },
-      autoatic_install = false,
+      -- LSP
+      ensure_installed = { "lua_ls", "clangd", "marksman", "yamlls" },
+      auto_install = false,
     },
     config = function(_, opts)
       local lspconfig = require("lspconfig")

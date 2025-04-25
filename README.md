@@ -4,16 +4,28 @@
 
 - git
 - any nerd font like
-  [MonacoNerdFont](https://github.com/thep0y/monaco-nerd-font)
+  [MonacoNerdFont](https://githFormatub.com/thep0y/monaco-nerd-font)
 - treesitter
 - lua
 - ripgrep
 - fd
+- npm
+- python-venv
 
 ## Language Services
 
-`Linter`: Static code analysis tool used to flag programming errors, bugs,
-stylistic errors and suspicious constructs.
+### Ensure to install
+
+#### nvim-tree
+
+- `Syntax highlighting`: lua, markdown, markdown_inline, yaml, editorconfig, c,
+  cpp, python, lua
+
+#### mason
+
+- `LSP`: lua_ls, clangd, marksman, yamlls
+- `Linter`: markdownlint, yamllint
+- `Formatter`: prettier
 
 ### lua
 
