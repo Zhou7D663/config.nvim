@@ -17,8 +17,12 @@ return {
           return " "
         end
 
-        local icon = level:match("error") and " " or " "
-        return " " .. icon .. count
+        local res = ""
+        for severity, number in pairs(diagnostics_dict) do
+          local symbol = severity == "error" and " " or (severity == "warn" and " ")
+          res = res .. number .. symbol
+        end
+        return res
       end,
       numbers = function(opts)
         return string.format("%s-%s", opts.ordinal, opts.id)
@@ -28,7 +32,7 @@ return {
         enabled = true,
         delay = 200,
         reveal = { "close" }
-      }
+      },
     },
   },
   config = function(_, opts)

@@ -1,7 +1,3 @@
--- Use Mason to install Formatters.
--- Required:
---  stylua
-
 return {
   "nvimtools/none-ls.nvim",
   config = function()

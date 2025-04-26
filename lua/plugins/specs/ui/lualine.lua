@@ -1,5 +1,5 @@
 return {
-  'nvim-lualine/lualine.nvim',
+  "nvim-lualine/lualine.nvim",
   opts = {
     options = {
       theme = "auto",
@@ -44,5 +44,5 @@ return {
     }
 
   },
-  dependencies = { 'nvim-tree/nvim-web-devicons' }
+  dependencies = { "nvim-tree/nvim-web-devicons" }
 }

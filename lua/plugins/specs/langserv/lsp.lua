@@ -1,15 +1,20 @@
 vim.diagnostic.config({
   virtual_text = {
     format = function(diagnostic)
-      return string.format("%s -- %s", diagnostic.message, diagnostic.source)
+      local severity = vim.diagnostic.severity[diagnostic.severity]
+      local source = diagnostic.source
+      if source:sub(-1) == "." then
+        source = source:sub(1, -2)
+      end
+      return string.format("%s: %s -- %s (%s).", severity, diagnostic.message, source, diagnostic.code)
     end
   },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = "󰅙",
       [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.INFO] = "󰌵",
-      [vim.diagnostic.severity.HINT] = "󰋼",
+      [vim.diagnostic.severity.INFO] = "󰋼",
+      [vim.diagnostic.severity.HINT] = "󰌵",
     },
   },
   update_in_insert = true,
