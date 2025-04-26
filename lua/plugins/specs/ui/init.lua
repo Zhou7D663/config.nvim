@@ -9,4 +9,5 @@ return {
   require(level .. ".bufferline"),
   require(level .. ".rainbow-delimiters"),
   require(level .. ".indent_blankline"),
+  require(level .. ".render-markdown"),
 }
