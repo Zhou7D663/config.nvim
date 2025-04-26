@@ -5,7 +5,7 @@
 - git
 - any nerd font like
   [MonacoNerdFont](https://githFormatub.com/thep0y/monaco-nerd-font)
-- treesitter
+- treesitter-cli
 - lua
 - ripgrep
 - fd
@@ -23,9 +23,9 @@
 
 #### mason
 
-- `LSP`: lua_ls, clangd, marksman, yamlls
-- `Linter`: markdownlint, yamllint
-- `Formatter`: prettier
+- `LSP`: lua_ls, clangd, marksman, yamlls, bashls
+- `Linter`: markdownlint, yamllint, shellcheck
+- `Formatter`: prettier, shfmt
 
 ### lua
 
@@ -34,7 +34,7 @@
 - `Linter`: lua_ls
 - `Formatter`: lua_ls
 
-Both `Formatter` and `Linter` use **.editorconfig** as configuration file.
+Both `Formatter` and `Linter` use `.editorconfig` as configuration file.
 
 ### markdown
 
@@ -49,3 +49,15 @@ Both `Formatter` and `Linter` use **.editorconfig** as configuration file.
 - `LSP:` yamlls
 - `Lintter`: yamllint
 - `Formatter`: yamlls
+
+### shell script
+
+- `Syntax hightlighting`: bash
+- `LSP`: bashls
+- `Linter`: shellcheck
+- `Formatter`: shfmt
+
+`shfmt` uses `.editorconfig` as its configuration file and ignores LSP configs
+when it finds `.editorconfig`. It is possible to disable `.editorconfig` support
+and always use LSP configs by setting the "Ignore Editorconfig" configuration
+varibale.

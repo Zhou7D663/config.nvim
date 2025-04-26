@@ -37,7 +37,7 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     opts = {
       -- LSP
-      ensure_installed = { "lua_ls", "clangd", "marksman", "yamlls" },
+      ensure_installed = { "lua_ls", "clangd", "marksman", "yamlls", "bashls" },
       auto_install = false,
     },
     config = function(_, opts)
@@ -97,7 +97,12 @@ return {
               },
             }
           }
-        end
+        end,
+        ["bashls"] = function()
+          lspconfig.bashls.setup {
+            filetypes = { "bash", "sh", "zsh" }
+          }
+        end,
       })
       local keymap = vim.keymap
       local keymap_ops = {}

@@ -5,7 +5,7 @@ return {
     local configs = require("nvim-treesitter.configs")
 
     configs.setup({
-      ensure_installed = { "c", "cpp", "python", "lua", "markdown", "markdown_inline", "yaml", "editorconfig" },
+      ensure_installed = { "c", "cpp", "python", "lua", "markdown", "markdown_inline", "yaml", "editorconfig", "bash" },
       sync_install = false,
       auto_install = false,
       hightlight = {
