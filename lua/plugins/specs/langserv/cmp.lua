@@ -10,7 +10,6 @@ return {
     opts = {
       keymap = {
         preset = "super-tab",
-
         ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
         ["<C-e>"] = { "hide", "fallback" },
         ["<Tab>"] = {
@@ -50,6 +49,20 @@ return {
           auto_show = true,
           draw = {
             treesitter = { "lsp" },
+            components = {
+              _source_name = {
+                width = { max = 30 },
+                text = function(ctx)
+                  return "[ " .. ctx.source_name .. " ]"
+                end,
+                highlight = "BlinkCmpSource",
+              },
+            },
+            columns = {
+              { "kind_icon" },
+              { "label",       "label_description", gap = 1 },
+              { "_source_name" },
+            },
           },
           border = "single",
         },

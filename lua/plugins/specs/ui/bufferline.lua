@@ -19,7 +19,7 @@ return {
 
         local res = ""
         for severity, number in pairs(diagnostics_dict) do
-          local symbol = severity == "error" and " " or (severity == "warn" and " ")
+          local symbol = severity == "error" and " " or (severity == "warning" and " " or (severity == "info" and " " or "󰌵 "))
           res = res .. number .. symbol
         end
         return res

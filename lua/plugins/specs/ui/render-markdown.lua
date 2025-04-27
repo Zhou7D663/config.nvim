@@ -4,7 +4,13 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
   },
-  opts = {},
+  opts = {
+    completions = {
+      lsp = {
+        enable = true,
+      }
+    }
+  },
   config = function(_, opts)
     local module = require("render-markdown")
     module.setup(opts)
