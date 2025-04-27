@@ -2,6 +2,7 @@ local level = "plugins.specs.langserv"
 
 return {
   require(level .. ".lsp"),
+  require(level .. ".lspkind"),
   require(level .. ".cmp"),
   require(level .. ".trouble"),
   require(level .. ".lspsaga"),

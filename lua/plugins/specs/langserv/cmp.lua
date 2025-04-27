@@ -5,7 +5,11 @@ return {
 
   {
     "saghen/blink.cmp",
-    dependicies = { "rafamadriz/friendly-snippets" },
+    dependicies = {
+      "rafamadriz/friendly",
+      "onsails/lspkind.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
     version = "*",
     opts = {
       keymap = {
@@ -53,9 +57,20 @@ return {
               _source_name = {
                 width = { max = 30 },
                 text = function(ctx)
-                  return "[ " .. ctx.source_name .. " ]"
+                  return "[ " .. ctx.kind .. " -- " .. ctx.source_name .. " ]"
                 end,
                 highlight = "BlinkCmpSource",
+              },
+              kind_icon = {
+                text = function(ctx)
+                  local lspkind = require("lspkind")
+
+                  local icon = lspkind.symbolic(ctx.kind, { mode = "symbol" })
+                  if string.len(icon) == 0 then
+                    return ctx.kind_icon .. ctx.icon_gap
+                  end
+                  return icon .. ctx.icon_gap
+                end,
               },
             },
             columns = {
