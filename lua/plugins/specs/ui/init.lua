@@ -10,4 +10,5 @@ return {
   require(level .. ".rainbow-delimiters"),
   require(level .. ".indent_blankline"),
   require(level .. ".render-markdown"),
+  require(level .. ".nvim-notify"),
 }

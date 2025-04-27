@@ -16,6 +16,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
-require("lazy").setup("plugins.specs")
+require("lazy").setup({
+  spec = "plugins.specs",
+  ui = {
+    border = "single",
+  }
+})
 
 vim.cmd.colorscheme "tokyonight"
+
+vim.notify = require("notify")
