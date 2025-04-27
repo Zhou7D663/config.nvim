@@ -11,6 +11,7 @@
 - fd
 - npm
 - python-venv
+- unzip
 
 ## Language Services
 
