@@ -7,7 +7,7 @@ return {
   opts = {
     completions = {
       lsp = {
-        enable = true,
+        enabled = true,
       }
     }
   },

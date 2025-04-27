@@ -1,5 +1,9 @@
 return {
   "nvimdev/lspsaga.nvim",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter", -- optional
+    "nvim-tree/nvim-web-devicons",
+  },
   opts = {
     code_action = {
       show_server_name = true,

@@ -8,7 +8,7 @@ return {
       ensure_installed = { "c", "cpp", "python", "lua", "markdown", "markdown_inline", "yaml", "editorconfig", "bash", "cmake" },
       sync_install = false,
       auto_install = false,
-      hightlight = {
+      highlight = {
         enable = true,
         additional_vim_regex_hightlighting = false,
         custom_captures = {

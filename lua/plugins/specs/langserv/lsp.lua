@@ -6,7 +6,8 @@ vim.diagnostic.config({
       if source:sub(-1) == "." then
         source = source:sub(1, -2)
       end
-      return string.format("%s: %s -- %s (%s).", severity, diagnostic.message, source, diagnostic.code)
+      return string.format("%s: %s -- %s (%s).", severity, diagnostic.message,
+        source, diagnostic.code)
     end
   },
   signs = {
@@ -42,7 +43,7 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     opts = {
       -- LSP
-      ensure_installed = { "lua_ls", "clangd", "marksman", "yamlls", "bashls" },
+      ensure_installed = { "lua_ls", "clangd", "marksman", "yamlls", "bashls", "cmake" },
       auto_install = false,
     },
     config = function(_, opts)
@@ -108,10 +109,16 @@ return {
             filetypes = { "bash", "sh", "zsh" }
           }
         end,
+        ["cmake"] = function()
+          lspconfig.cmake.setup {
+            filetypes = { "cmake", "txt" },
+          }
+        end
       })
       local keymap = vim.keymap
       local keymap_ops = {}
-      keymap.set("n", "<leader>xw", ":lua vim.diagnostic.open_float({ border = 'single' })<CR>", keymap_ops)
+      keymap.set("n", "<leader>xw",
+        ":lua vim.diagnostic.open_float({ border = 'single' })<CR>", keymap_ops)
       keymap.set({ "n", "v" }, "<leader>F", vim.lsp.buf.format, keymap_ops)
     end
   },
