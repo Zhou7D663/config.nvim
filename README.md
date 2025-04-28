@@ -26,8 +26,15 @@
 
 - `LSP`: lua_ls, clangd, marksman, yamlls, bashls
 - `Linter`: markdownlint, yamllint, shellcheck
-- `Formatter`: prettier, shfmt
+- `Formatter`: prettier, shfmt, clang-format
 - `Integrated`: cmakelang (cmake-lint and cmake-format)
+
+### c/cpp
+
+- `Syntax highlighting`: c, cpp
+- `LSP`: clangd
+- `Linter`: clang-tidy -- clangd
+- `Formatter`: clang-format
 
 ### lua
 
