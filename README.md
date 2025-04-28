@@ -4,7 +4,7 @@
 
 - git
 - any nerd font like
-  [MonacoNerdFont](https://githtub.com/thep0y/monaco-nerd-font)
+  [MonacoNerdFont](https://github.com/thep0y/monaco-nerd-font)
 - treesitter-cli
 - lua
 - ripgrep
