@@ -4,7 +4,7 @@
 
 - git
 - any nerd font like
-  [MonacoNerdFont](https://githFormatub.com/thep0y/monaco-nerd-font)
+  [MonacoNerdFont](https://githtub.com/thep0y/monaco-nerd-font)
 - treesitter-cli
 - lua
 - ripgrep
@@ -27,6 +27,7 @@
 - `LSP`: lua_ls, clangd, marksman, yamlls, bashls
 - `Linter`: markdownlint, yamllint, shellcheck
 - `Formatter`: prettier, shfmt
+- `Integrated`: cmakelang (cmake-lint and cmake-format)
 
 ### lua
 
@@ -62,3 +63,10 @@ Both `Formatter` and `Linter` use `.editorconfig` as configuration file.
 when it finds `.editorconfig`. It is possible to disable `.editorconfig` support
 and always use LSP configs by setting the "Ignore Editorconfig" configuration
 varibale.
+
+### cmake
+
+- `Syntax hightlighting`: cmake
+- `LSP`: neocmake
+- `Linter`: cmake-lint -- cmakelang
+- `Formatter`: cmake-format -- cmakelang

@@ -8,9 +8,19 @@ return {
       sources = {
         null_ls.builtins.diagnostics.markdownlint,
         null_ls.builtins.diagnostics.yamllint,
+        null_ls.builtins.diagnostics.cmake_lint.with(
+          {
+            filetypes = { "cmake", "txt" },
+          }
+        ),
         null_ls.builtins.formatting.prettier.with(
           {
             filetypes = { "markdown" },
+          }
+        ),
+        null_ls.builtins.formatting.cmake_format.with(
+          {
+            filetypes = { "cmake", "txt" },
           }
         )
       },

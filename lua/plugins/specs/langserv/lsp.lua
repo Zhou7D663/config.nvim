@@ -43,7 +43,7 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     opts = {
       -- LSP
-      ensure_installed = { "lua_ls", "clangd", "marksman", "yamlls", "bashls", "cmake" },
+      ensure_installed = { "lua_ls", "clangd", "marksman", "yamlls", "bashls", "neocmake" },
       auto_install = false,
     },
     config = function(_, opts)
@@ -109,9 +109,20 @@ return {
             filetypes = { "bash", "sh", "zsh" }
           }
         end,
-        ["cmake"] = function()
-          lspconfig.cmake.setup {
-            filetypes = { "cmake", "txt" },
+        ["neocmake"] = function()
+          lspconfig.neocmake.setup {
+            filetypes = { "cmake", "CMakeLists.txt" },
+            on_attach = function(client, bufnr)
+              client.handlers["textDocument/publishDiagnostics"] = function() end
+            end,
+            init_options = {
+              format = {
+                enable = false,
+              },
+              lint = {
+                enable = false,
+              }
+            }
           }
         end
       })
