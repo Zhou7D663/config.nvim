@@ -36,6 +36,16 @@
 - `Linter`: clang-tidy -- clangd
 - `Formatter`: clang-format
 
+### python
+
+- `Syntax highlighting`: python
+- `LSP`: ruff
+- `Linter`: ruff
+- `Formatter`: ruff
+
+`Ruff` can be reconfigured through a `pyproject.toml`, `ruff.toml`, or
+`.ruff.toml` file.
+
 ### lua
 
 - `Syntax highlighting`: lua
@@ -57,7 +67,7 @@ Both `Formatter` and `Linter` use `.editorconfig` as configuration file.
 - `Syntax highlighting`: yaml
 - `LSP:` yamlls
 - `Lintter`: yamllint
-- `Formatter`: yamlls
+- `Formatter`: prettier
 
 ### shell script
 

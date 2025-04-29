@@ -1,9 +1,9 @@
 local level = "plugins.specs.langserv"
 
 return {
-  require(level .. ".lsp"),
+  require(level .. ".mason"),
   require(level .. ".lspkind"),
-  require(level .. ".cmp"),
+  require(level .. ".blink-cmp"),
   require(level .. ".trouble"),
   require(level .. ".lspsaga"),
   require(level .. ".none-ls"),
