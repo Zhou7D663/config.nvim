@@ -1,9 +1,6 @@
 vim.g.mapleader = ","
 
 
--- Keymaps
-vim.keymap.set("t", "<ESC>", [[<C-\><C-n>]], { desc = "Me: Back to `Normal` mode when in `Terminal` mode." })
-
 
 -- Options
 -- Line
@@ -13,8 +10,10 @@ vim.opt.relativenumber = true
 -- Tab
 vim.opt.tabstop = 2
 vim.opt.autoindent = true
+vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+vim.cinoptions = ""
 
 -- No wrap for long text
 vim.opt.wrap = false
@@ -47,3 +46,33 @@ vim.opt.clipboard:append("unnamedplus")
 --     command = "set fixeol",
 --   }
 -- )
+
+-- Keymaps
+vim.keymap.set("t", "q", [[<C-\><C-n>]],
+  { desc = "Me: Back to `Normal` mode when in `Terminal` mode." })
+vim.keymap.set("v", "<C-k>", function()
+    local count = vim.v.count
+    -- Move the selected lines up at least one line.
+    if count < 2 then
+      count = 2
+    end
+    return ":m '<-" .. count .. "<CR>gv=gv"
+  end,
+  {
+    expr = true,
+    desc =
+    "Move the selected area up below the specific line, up at least one line which is also the deafult."
+  })
+vim.keymap.set("v", "<C-j>", function()
+    local count = vim.v.count
+    -- Move the selected lines down at least on line.
+    if count < 1 then
+      count = 1
+    end
+    return ":m '>+" .. count .. "<CR>gv=gv"
+  end,
+  {
+    expr = true,
+    desc =
+    "Move the selected area down below the specific line, down at least one line which is also the default."
+  })

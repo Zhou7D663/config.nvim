@@ -39,7 +39,7 @@
 ### python
 
 - `Syntax highlighting`: python
-- `LSP`: ruff
+- `LSP`: pyright
 - `Linter`: ruff
 - `Formatter`: ruff
 

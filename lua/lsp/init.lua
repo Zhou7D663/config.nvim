@@ -3,11 +3,11 @@ vim.diagnostic.config({
     format = function(diagnostic)
       local severity = vim.diagnostic.severity[diagnostic.severity]
       local source = diagnostic.source
-      if source:sub(-1) == "." then
+      if source and source:sub(-1) == "." then
         source = source:sub(1, -2)
       end
       return string.format("%s: %s -- %s (%s).", severity, diagnostic.message,
-        source, diagnostic.code)
+        source or "-", diagnostic.code or "-")
     end
   },
   signs = {
@@ -22,13 +22,17 @@ vim.diagnostic.config({
   severity_sort = true,
 })
 
+vim.g.inlay_hints_visible = true
+vim.lsp.inlay_hint.enable()
+
 local function enable_lsp_server(server_name)
   local server_config = require("lsp.configs." .. server_name)
   vim.lsp.config(server_name, server_config)
   vim.lsp.enable(server_name)
 end
 
-local servers = { "clangd", "lua_ls", "bashls", "yamlls", "neocmake", "ruff" }
+local servers = { "clangd", "lua_ls", "bashls", "yamlls", "neocmake", "pyright",
+  "ruff" }
 
 for idx = 1, #servers do
   enable_lsp_server(servers[idx])
@@ -55,3 +59,4 @@ local keymap_ops = {}
 keymap.set("n", "<leader>xw",
   ":lua vim.diagnostic.open_float({ border = 'single' })<CR>", keymap_ops)
 keymap.set({ "n", "v" }, "<leader>F", vim.lsp.buf.format, keymap_ops)
+keymap.set("n", "<leader>xd", vim.lsp.buf.definition, keymap_ops)

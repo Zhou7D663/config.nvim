@@ -13,6 +13,7 @@ return {
     },
     lint = {
       enable = false,
-    }
+    },
+    scan_cmake_in_package = true
   }
 }

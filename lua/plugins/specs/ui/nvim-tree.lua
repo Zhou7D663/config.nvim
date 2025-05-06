@@ -8,8 +8,12 @@ return {
   opts = {
     renderer = {
       indent_markers = {
-        enable = true
-      }
+        enable = true,
+      },
+      add_trailing = true,
+    },
+    filters = {
+      git_ignored = false,
     }
   },
   config = function(_, opts)
@@ -23,6 +27,10 @@ return {
     local keymap = vim.keymap
     local api = require("nvim-tree.api")
 
-    keymap.set("n", "<leader>e", api.tree.toggle, { desc = "nvim-tree: Toogle tree" })
+    keymap.set("n", "<leader>eo", api.tree.toggle,
+      { desc = "nvim-tree: Toogle tree" })
+    keymap.set("n", "<leader>ef", function()
+      api.tree.find_file({ update_root = true, open = true, focus = true, })
+    end, { desc = "nvim-tree: Fouc on the" })
   end
 }
