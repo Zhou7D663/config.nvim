@@ -1,3 +1,15 @@
+local function enable_lsp_server(server_name)
+  local server_config = require("lsp.configs." .. server_name)
+  vim.lsp.config(server_name, server_config)
+  vim.lsp.enable(server_name)
+end
+
+local function append(to, from)
+  for _, v in ipairs(from) do
+    table.insert(to, v)
+  end
+end
+
 vim.diagnostic.config({
   virtual_text = {
     format = function(diagnostic)
@@ -25,13 +37,9 @@ vim.diagnostic.config({
 vim.g.inlay_hints_visible = true
 vim.lsp.inlay_hint.enable()
 
-local function enable_lsp_server(server_name)
-  local server_config = require("lsp.configs." .. server_name)
-  vim.lsp.config(server_name, server_config)
-  vim.lsp.enable(server_name)
-end
 
-local servers = { "clangd", "lua_ls", "bashls", "yamlls", "neocmake", "pyright",
+local servers = { "clangd", "lua-language-server", "bash-language-server",
+  "yaml-language-server", "neocmakelsp", "pyright",
   "ruff" }
 
 for idx = 1, #servers do
@@ -44,10 +52,15 @@ local integrated = { "cmakelang" }
 
 vim.api.nvim_create_user_command("MeMasonInstallAll", function(opts)
   if not table.unpack then
+    ---@diagnostic disable-next-line: deprecated
     table.unpack = unpack
   end
-  local args = { table.unpack(servers), table.unpack(linters), table.unpack(
-    formatters), table.unpack(integrated) }
+  local args = {}
+  append(args, servers)
+  append(args, linters)
+  append(args, formatters)
+  append(args, integrated)
+
   vim.api.nvim_cmd({
     cmd = "MasonInstall",
     args = args,
