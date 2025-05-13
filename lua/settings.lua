@@ -1,7 +1,5 @@
 vim.g.mapleader = ","
 
-
-
 -- Options
 -- Line
 vim.opt.number = true
