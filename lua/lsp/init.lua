@@ -55,8 +55,9 @@ vim.api.nvim_create_user_command("MeMasonInstallAll", function(opts)
 end, {})
 
 local keymap = vim.keymap
-local keymap_ops = {}
+local keymap_opts = {}
 keymap.set("n", "<leader>xw",
-  ":lua vim.diagnostic.open_float({ border = 'single' })<CR>", keymap_ops)
-keymap.set({ "n", "v" }, "<leader>F", vim.lsp.buf.format, keymap_ops)
-keymap.set("n", "<leader>xd", vim.lsp.buf.definition, keymap_ops)
+  ":lua vim.diagnostic.open_float({ border = 'single' })<CR>", keymap_opts)
+keymap.set({ "n", "v" }, "<leader>F", vim.lsp.buf.format, keymap_opts)
+keymap.set("n", "<leader>xd", vim.lsp.buf.definition, keymap_opts)
+keymap.set("n", "<leader>xD", vim.lsp.buf.declaration, keymap_opts)

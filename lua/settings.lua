@@ -13,10 +13,10 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-vim.cinoptions = ""
+vim.cinoptions = "g0"
 
 -- No wrap for long text
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- Cursor
 vim.opt.cursorline = true
@@ -48,7 +48,7 @@ vim.opt.clipboard:append("unnamedplus")
 -- )
 
 -- Keymaps
-vim.keymap.set("t", "q", [[<C-\><C-n>]],
+vim.keymap.set("t", "qq", [[<C-\><C-n>]],
   { desc = "Me: Back to `Normal` mode when in `Terminal` mode." })
 vim.keymap.set("v", "<C-k>", function()
     local count = vim.v.count
@@ -76,3 +76,23 @@ vim.keymap.set("v", "<C-j>", function()
     desc =
     "Move the selected area down below the specific line, down at least one line which is also the default."
   })
+vim.keymap.set("n", "<C-w>>", function()
+  local count = vim.v.count
+  if count == 0 then
+    count = 5
+  end
+  return ":vertical resize +" .. count .. " <CR>"
+end, {
+  expr = true,
+  desc = "Inscrease the window width by vim.v.count (default 5) lines.",
+})
+vim.keymap.set("n", "<C-w><", function()
+  local count = vim.v.count
+  if count == 0 then
+    count = 5
+  end
+  return ":vertical resize -" .. count .. " <CR>"
+end, {
+  expr = true,
+  desc = "Decrease the window width by vim.v.count (default 5) lines.",
+})
