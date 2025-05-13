@@ -20,11 +20,6 @@ return {
       "Trouble: Toggle lsp definetions, references, implementations, type definetions, and declarations of the symbol under the cursor.",
     },
     {
-      "<leader>xf",
-      "<CMD>Trouble qflist toggle filer.buf=0<CR>",
-      desc = "Trouble: Toggle quick fix list of the current buffer.",
-    },
-    {
       "<leader>xIC",
       "<CMD>Trouble lsp_incoming_calls toggle<CR>",
       desc = "Trouble: Toggle about which functions call the current function."
@@ -32,7 +27,8 @@ return {
     {
       "<leader>xOC",
       "<CMD>Trouble lsp_outgoing_calls toggle<CR>",
-      desc = "Trouble: Toggle about which functions are called by the current function."
+      desc =
+      "Trouble: Toggle about which functions are called by the current function."
     }
   }
 }

@@ -9,4 +9,5 @@ return {
   require(level .. ".none-ls"),
   require(level .. ".auto-pairs"),
   require(level .. ".comment"),
+  require(level .. ".nvim-dap"),
 }
