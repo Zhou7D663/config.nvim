@@ -40,7 +40,7 @@ vim.lsp.inlay_hint.enable()
 
 local servers = { "clangd", "lua-language-server", "bash-language-server",
   "yaml-language-server", "neocmakelsp", "pyright",
-  "ruff" }
+  "ruff", "marksman" }
 
 for idx = 1, #servers do
   enable_lsp_server(servers[idx])
