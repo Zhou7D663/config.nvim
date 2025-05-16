@@ -18,7 +18,7 @@ vim.opt.wrap = true
 
 -- Cursor
 vim.opt.cursorline = true
-vim.opt.guicursor = "i:hor20"
+vim.opt.guicursor = "i-t:hor20"
 
 -- Enable mouse
 vim.opt.mouse = "a"
