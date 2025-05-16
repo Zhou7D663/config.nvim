@@ -8,10 +8,10 @@
 - treesitter-cli
 - lua
 - ripgrep
-- fd
+- fd (fd-finder)
 - npm
 - python-venv
-- unzip
+- unzip (zip)
 
 ## Language Services
 

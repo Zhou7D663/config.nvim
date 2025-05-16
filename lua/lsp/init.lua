@@ -39,7 +39,7 @@ vim.lsp.inlay_hint.enable()
 
 
 local servers = { "clangd", "lua-language-server", "bash-language-server",
-  "yaml-language-server", "neocmakelsp", "pyright",
+  "yaml-language-server", "cmake-language-server", "pyright",
   "ruff", "marksman" }
 
 for idx = 1, #servers do
