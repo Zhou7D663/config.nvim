@@ -86,3 +86,9 @@ varibale.
 - `LSP`: neocmake
 - `Linter`: cmake-lint -- cmakelang
 - `Formatter`: cmake-format -- cmakelang
+
+### Dockerfile
+
+- `Syntax highlighting`: docker
+- `LSP`: dockerfile-language-server
+- `Linter`: hadolint

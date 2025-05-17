@@ -40,13 +40,13 @@ vim.lsp.inlay_hint.enable()
 
 local servers = { "clangd", "lua-language-server", "bash-language-server",
   "yaml-language-server", "cmake-language-server", "pyright",
-  "ruff", "marksman" }
+  "ruff", "marksman", "dockerfile-language-server" }
 
 for idx = 1, #servers do
   enable_lsp_server(servers[idx])
 end
 
-local linters = { "markdownlint", "yamllint", "shellcheck" }
+local linters = { "markdownlint", "yamllint", "shellcheck", "hadolint" }
 local formatters = { "prettier", "shfmt", "clang-format" }
 local integrated = { "cmakelang" }
 
