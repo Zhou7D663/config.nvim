@@ -5,12 +5,11 @@
 - git
 - any nerd font like
   [MonacoNerdFont](https://github.com/thep0y/monaco-nerd-font)
-- treesitter-cli
 - lua
 - ripgrep
-- fd (fd-finder)
+- fd (fd-find)
 - npm
-- python-venv
+- python3-venv
 - unzip (zip)
 
 ## Language Services
