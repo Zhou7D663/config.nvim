@@ -34,6 +34,16 @@ vim.opt.splitbelow = true -- Put the the window below the current one
 -- Clipboard
 vim.opt.clipboard:append("unnamedplus")
 
+-- Filetypes
+vim.filetype.add({
+  extension = {
+    ContainerFile = "dockerfile"
+  },
+  filename = {
+    ["CMakeLists.txt"] = "cmake"
+  }
+})
+
 
 -- Autocommand
 -- vim.api.nvim_create_augroup("_formatting", { clear = true })

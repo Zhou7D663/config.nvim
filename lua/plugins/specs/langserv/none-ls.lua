@@ -10,7 +10,7 @@ return {
         null_ls.builtins.diagnostics.yamllint,
         null_ls.builtins.diagnostics.cmake_lint.with(
           {
-            filetypes = { "cmake", "CMakeLists.txt" },
+            filetypes = { "cmake" },
           }
         ),
         null_ls.builtins.formatting.prettier.with(
@@ -20,7 +20,7 @@ return {
         ),
         null_ls.builtins.formatting.cmake_format.with(
           {
-            filetypes = { "cmake", "CMakeLists.txt" },
+            filetypes = { "cmake" },
           }
         ),
         null_ls.builtins.formatting.clang_format,

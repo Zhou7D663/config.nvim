@@ -1,5 +1,5 @@
 return {
-  cmd = { "docker-languageserver", "--stdio" },
-  filetypes = { "dockerfile", "ContainerFile" },
+  cmd = { "docker-langserver", "--stdio" },
+  filetypes = { "dockerfile" },
   root_markers = { ".git", "Dockerfile" }
 }

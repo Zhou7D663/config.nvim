@@ -1,6 +1,6 @@
 return {
   cmd = { "neocmakelsp", "--stdio" },
-  filetypes = { "cmake", "CMakeLists.txt" },
+  filetypes = { "cmake" },
   root_markers = { ".git", "build", "cmake" },
   -- Use cmakelang for format and linter
   init_options = {
