@@ -11,6 +11,7 @@
 - npm
 - python3-venv
 - unzip (zip)
+- curl
 
 ## Language Services
 
