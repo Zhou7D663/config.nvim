@@ -2,6 +2,7 @@
 
 ## Requirements
 
+- build-essential
 - git
 - any nerd font like
   [MonacoNerdFont](https://github.com/thep0y/monaco-nerd-font)

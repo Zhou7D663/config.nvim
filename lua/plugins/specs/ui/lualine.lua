@@ -4,9 +4,9 @@ return {
     options = {
       theme = "auto",
       component_separators = { left = "", right = "" },
-      section_separators = { left = " ", right = "" }
+      section_separators = { left = " ", right = "" }
     },
-    extensions = { "nvim-tree", "trouble", "mason" },
+    extensions = { "nvim-tree", "trouble", "mason", "toggleterm" },
     sections = {
       lualine_a = {
         {
@@ -34,9 +34,13 @@ return {
         "diagnostics"
       },
 
-      lualine_x = {},
+      lualine_x = {
+        "lsp_status",
+      },
 
-      lualine_y = {},
+      lualine_y = {
+        "location",
+      },
 
       lualine_z = {
         "progress",
