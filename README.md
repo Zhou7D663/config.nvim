@@ -21,7 +21,7 @@
 #### nvim-tree
 
 - `Syntax highlighting`: lua, markdown, markdown_inline, yaml, editorconfig, c,
-  cpp, python, lua
+  cpp, python, lua, dockerfile
 
 #### mason
 
