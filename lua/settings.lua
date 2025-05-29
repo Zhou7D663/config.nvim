@@ -33,6 +33,7 @@ vim.opt.splitbelow = true -- Put the the window below the current one
 
 -- Clipboard
 vim.opt.clipboard:append("unnamedplus")
+vim.g.clipboard = "osc52"
 
 -- Filetypes
 vim.filetype.add({
@@ -44,6 +45,20 @@ vim.filetype.add({
   }
 })
 
+-- User command
+vim.api.nvim_create_user_command("LspInfo", function(opts)
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  local message = ""
+  for _, client in ipairs(clients) do
+    local server_info = client.server_info
+    local version = ""
+    if server_info ~= nil then
+      version = server_info.version or ""
+    end
+    message = message .. client.name .. version .. " "
+  end
+  vim.print(message)
+end, {})
 
 -- Autocommand
 -- vim.api.nvim_create_augroup("_formatting", { clear = true })

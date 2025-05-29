@@ -5,4 +5,5 @@ return {
   require(level .. ".telescope"),
   require(level .. ".gitsigns"),
   require(level .. ".toggleterm"),
+  require(level .. ".csvview"),
 }
