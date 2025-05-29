@@ -23,6 +23,6 @@ require("lazy").setup({
   }
 })
 
-vim.cmd.colorscheme "tokyonight"
+vim.cmd.colorscheme "vscode"
 
 vim.notify = require("notify")
