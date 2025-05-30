@@ -5,4 +5,3 @@ return {
   require(level .. ".langserv"),
   require(level .. ".utils")
 }
-{
