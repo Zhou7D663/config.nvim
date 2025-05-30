@@ -4,4 +4,5 @@ return {
   require(level .. ".tokyonight"),
   require(level .. ".vscode"),
   require(level .. ".gruvbox"),
+  require(level .. ".arctic")
 }
