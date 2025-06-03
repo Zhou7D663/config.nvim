@@ -6,4 +6,5 @@ return {
   require(level .. ".gitsigns"),
   require(level .. ".toggleterm"),
   require(level .. ".csvview"),
+  require(level .. ".nvim-treesitter-textobjects"),
 }
