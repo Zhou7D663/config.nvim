@@ -71,6 +71,40 @@ end, {})
 --   }
 -- )
 
+-- User command
+vim.api.nvim_create_user_command("Bd", function(opts)
+  if not vim.bo.buflisted then
+    return
+  end
+
+  local cur_buf = vim.api.nvim_get_current_buf()
+  local buf_list = vim.api.nvim_list_bufs()
+  local next_buf = nil
+  for _, buf in ipairs(buf_list) do
+    if buf == cur_buf then
+      goto continue
+    end
+
+    if vim.bo[buf].filetype == "NvimTree" then
+      goto continue
+    end
+
+    if vim.bo[buf].buflisted then
+      next_buf = buf
+    end
+
+    ::continue::
+  end
+
+  if next_buf ~= nil then
+    vim.api.nvim_set_current_buf(next_buf)
+  else
+    vim.cmd("NvimTreeFocus")
+  end
+
+  vim.api.nvim_buf_delete(cur_buf, { force = opts.bang })
+end, { bang = true })
+
 -- Keymaps
 vim.keymap.set("t", "qq", [[<C-\><C-n>]],
   { desc = "Me: Back to `Normal` mode when in `Terminal` mode." })
@@ -120,3 +154,26 @@ end, {
   expr = true,
   desc = "Decrease the window width by vim.v.count (default 5) lines.",
 })
+vim.keymap.set("n", "<C-j>", function()
+  local count = vim.v.count
+  if count == 0 then
+    count = 1
+  end
+  local buf_listed = {}
+  local buf_list = vim.api.nvim_list_bufs()
+  for _, buf in ipairs(buf_list) do
+    if vim.bo[buf].buflisted then
+      table.insert(buf_listed, buf)
+    end
+  end
+
+  if #buf_listed == 0 then
+    return
+  end
+
+  if count > #buf_listed then
+    count = #buf_listed
+  end
+
+  vim.api.nvim_set_current_buf(buf_listed[count])
+end)
